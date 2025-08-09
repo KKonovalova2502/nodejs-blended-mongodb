@@ -1,7 +1,7 @@
 import { ProductModel } from '../db/models/Product.js';
 
 export const getAllProductsService = async ({ filter, userId }) => {
-  const productsQuery = ProductModel.find({ userId });
+  const productsQuery = ProductModel.fin({ userId });
 
   if (filter.category) {
     productsQuery.where('category').equals(filter.category);

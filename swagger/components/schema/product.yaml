@@ -1,0 +1,37 @@
+type: object
+required:
+  - _id
+  - name
+  - price
+  - category
+  - userId
+properties:
+  _id:
+    description: "Product's id"
+    type: string
+    example: 65e4decdd286b30065d54af9
+  name:
+    description: "Product's name"
+    type: string
+    example: 'Smartphone'
+  price:
+    description: "Product's price"
+    type: number
+    example: 150
+  category:
+    description: "Product's category"
+    type: string
+    enum: ['books', 'electronics', 'clothing', 'other']
+    example: other
+  userId:
+    description: "Product's user id"
+    type: string
+    example: 688e532c4c845be353d862f0
+  createAt:
+    description: 'Time create a product'
+    type: string
+    example: '2025-08-02T21:55:32.143Z'
+  updateAt:
+    description: 'Time update a product'
+    type: string
+    example: '2025-08-02T21:55:32.143Z'

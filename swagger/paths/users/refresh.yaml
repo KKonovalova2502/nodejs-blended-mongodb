@@ -1,0 +1,25 @@
+tags:
+  - Users
+summary: Refresh user
+operationId: refreshUser
+description: 'Refresh user'
+security: []
+parameters:
+  - in: cookie
+    name: sessionId
+    required: true
+    schema:
+      type: string
+    example: abc123
+    description: Session ID of the user.
+responses:
+  '200':
+    description: Refresh User
+    headers:
+      Set-Cookie:
+        description: Cookies set after successful Refresh
+        schema:
+          type: array
+          items:
+            type: string
+            example:
