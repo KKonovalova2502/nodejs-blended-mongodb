@@ -1,8 +1,8 @@
 tags:
   - Users
-summary: Create user
-operationId: registerUser
-description: 'Register user with payload'
+summary: Login user
+operationId: loginUser
+description: 'Login user with payload'
 security: []
 requestBody:
   content:
@@ -42,6 +42,21 @@ responses:
             - status
             - message
             - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: Successfully logged in an user!
+            data:
+              type: object
+              required:
+                - accessToken
+              properties:
+                accessToken:
+                  type: string
+                  example: 'KM7lFdyoo+KoMu3Qayirz25TLatWquip65kZKxlZ'
   '400':
     $ref: ../../components/responses/400.yaml
   '401':

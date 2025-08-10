@@ -12,6 +12,13 @@ parameters:
       type: string
     example: abc123
     description: Session ID of the user.
+  - in: cookie
+    name: refreshToken
+    required: true
+    schema:
+      type: string
+    example: abc123
+    description: Refresh token associated with the session.
 responses:
   '200':
     description: Refresh User
@@ -22,4 +29,49 @@ responses:
           type: array
           items:
             type: string
-            example:
+            example: |
+              sessionId=abc123; Path=/; HttpOnly
+              refreshToken=xyz456; Path=/; HttpOnly
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 200
+            message:
+              type: string
+              example: 'Successfully refreshed a session!'
+            data:
+              type: object
+              required:
+                - accessToken
+              properties:
+                accessToken:
+                  type: string
+                  example: 'KM7lFdyoo+KoMu3Qayirz25TLatWquip65kZKxlZ'
+  '400':
+    $ref: ../../components/responses/400.yaml
+  '401':
+    description: Invalid session or refresh token.
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+          properties:
+            status:
+              type: integer
+              example: 401
+            message:
+              type: string
+              example: Session not found or expired
+  '500':
+    $ref: '../../components/responses/500.yaml'

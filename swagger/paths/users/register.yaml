@@ -25,7 +25,7 @@ requestBody:
           password:
             description: "User's password"
             type: string
-            example: 'kop][popiu]'
+            example: 'abc123'
 responses:
   '201':
     description: Register user
@@ -46,7 +46,7 @@ responses:
               example: Successfully registered a user!
             data:
               type: object
-              $ref: '../../paths/users/register.yaml'
+              $ref: ../../components/schema/user.yaml
   '400':
     $ref: ../../components/responses/400.yaml
   '409':

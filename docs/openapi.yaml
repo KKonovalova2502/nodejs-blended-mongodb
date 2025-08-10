@@ -10,6 +10,8 @@ info:
 tags:
   - name: Products
     description: Operations with products
+  - name: Users
+    description: Auth operations.
 servers:
   - url: http://localhost:3000
   - url: https://nodejs-hw-mongodb-6-v95v.onrender.com
@@ -26,6 +28,18 @@ paths:
       $ref: '../swagger/paths/products/{id}/patch.yaml'
     delete:
       $ref: '../swagger/paths/products/{id}/delete.yaml'
+  /users/register:
+    post:
+      $ref: '../swagger/paths/users/register.yaml'
+  /users/login:
+    post:
+      $ref: '../swagger/paths/users/login.yaml'
+  /users/refresh:
+    post:
+      $ref: '../swagger/paths/users/refresh.yaml'
+  /users/logout:
+    post:
+      $ref: '../swagger/paths/users/logout.yaml'
 components:
   securitySchemes:
     bearerAuth:
